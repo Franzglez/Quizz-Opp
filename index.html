@@ -1,25 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<style></style>
+<style>
+    div {
+        background-image: url("img/quiz_time.jpg_726463374.webp");
+        color: white
+</style>
+
 <body>
 
-    <main>
-        <section>
-            <picture>
-                <img src="quiz_time" alt="ilustracion">
-            </picture>
-        </section>
-    </main>
 
-    <script src="Inicio.js"></script>
+    <div id="questions">
+
+
+        <img src="img/quiz_time.jpg_726463374.webp" alt="">
+
+
+        <div id="player">
+
+            Insert Name <input type="text" id="Name of Player" /> <br>
+            <label for="elegir">Number of Questions</label>
+            <input type="number" id="numeropreguntas" name="numeropreguntas" min="1" max="5"> <br>
+            <input type="button" onclick="remove()" value="Start">
+
+
+
+        </div>
+
+    </div>
+    <script>
+        const element = document.querySelector("#questions")
+        function remove() {
+            document.body.removeChild(element)
+
+            const h1 = document.createElement('h1')
+            h1.innerText = "QUIZ"
+            divcontenedora.appendChild(h1)
+            document.body.appendChild(divcontenedora)
+
+            const juego = new Juego(preguntas.questions, divcontenedora)
+            console.log(juego)
+
+            juego.start()
+
+        }
+
+
+    </script>
+
+    <script src="pregunta.js"></script>
     <script src="Juego.js"></script>
-    <script src="Pregunta.js"></script>
-    <script src="Fin.js"></script>
+    <script src="Preguntas.js"></script>
+
 </body>
+
 </html>

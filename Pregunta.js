@@ -1,54 +1,39 @@
-const preguntas = {
-    "questions": [
-        {
-            "question": "How do you round the number 7.25, to the nearest integer?",
-            "answers": [
-                "Math.round(7.25)",
-                "round(7.25)",
-                "Math.rnd(7.25)",
-                "rnd(7.25)"
-            ],
-            "correctAnswer": 0
-        },
-        {
-            "question": "Which operator is used to assign a value to a variable?",
-            "answers": [
-                "x",
-                "-",
-                "=",
-                "*"
-            ],
-            "correctAnswer": 0
-        },
-        {
-            "question": "How do you write \"Hello World\" in an alert box?",
-            "answers": [
-                "msgBox(\"Hello World\");",
-                "alert(\"Hello World\");",
-                "alertBox(\"Hello World\");",
-                "msg(\"Hello World\");"
-            ],
-            "correctAnswer": 0
-        },
-        {
-            "question": "What is the correct JavaScript syntax to change the content of the HTML element below?",
-            "answers": [
-                "document.getElement(\"p\").innerHTML = \"Hello World!\";",
-                "document.getElementById(\"demo\").innerHTML = \"Hello World!\";",
-                "#demo.innerHTML = \"Hello World!\";",
-                "document.getElementByName(\"p\").innerHTML = \"Hello World!\";"
-            ],
-            "correctAnswer": 2
-        },
-        {
-            "question": "What is the correct syntax for referring to an external script called \"xxx.js\"?",
-            "answers": [
-                "<script href=\"xxx.js\">",
-                "<script src=\"xxx.js\">",
-                "<script name=\"xxx.js\">",
-                "<script declare=\"xxx.js\">"
-            ],
-            "correctAnswer": 2
-        }
-    ]
-}
+const divcontenedora = document.createElement("div")
+class Pregunta {
+    constructor(pregunta, contenedor) {
+        this.pregunta = pregunta
+        this.contenedor = contenedor
+    }
+  
+
+    createQuestion(set){
+                
+        const parrafo = document.createElement("p")
+        parrafo.innerText= this.pregunta.question
+        this.contenedor.append(parrafo)
+    
+        this.createAnswer(this.pregunta.answers[0],set)
+        this.createAnswer(this.pregunta.answers[1],set)
+        this.createAnswer(this.pregunta.answers[2],set)
+        this.createAnswer(this.pregunta.answers[3],set)
+
+       const br = document.createElement("br")
+       this.contenedor.append(br)
+    
+    }
+    
+    createAnswer(answer,set) {
+        const input = document.createElement('input')
+        input.setAttribute("type","radio")
+        input.setAttribute("value",answer)
+        input.setAttribute("name",set)
+        this.contenedor.appendChild(input)
+        const label = document.createElement('label')
+        label.innerText= answer
+        this.contenedor.appendChild(label)
+
+        const button = document.querySelector('input'); 
+        button.onclick = function() {
+       
+    }
+}}
